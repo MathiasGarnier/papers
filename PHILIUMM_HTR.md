@@ -1,3 +1,9 @@
+# Installation
+
+Pour éviter tout soucis d'installation (pour les utilisateurs Windows ou de certaines distributions Linux), on fournit un [notebook Colab](https://colab.research.google.com/drive/1dMvd0vr-Owg6MUeVhxWr2EylcE6RZSAg?usp=sharing) (exécutable à condition de disposer d'un compte Google).
+
+
+
 # Rapides rappels des résultats de la campagne d'évaluation
 
 # Quels modèles évaluer ?
@@ -10,3 +16,15 @@
 
 À cela s'ajoutent deux fine-tuning produits par D.-F. Bumba lors da la fin du mois de juin. Leurs performances semblent néanmoins, au premier coup d'oeil, bien inférieures à ce dont nous disposions précedemment. De plus, parallèlement à ces modèles _lightweights_, de rapides tests employant des vLLM ont été conduits.
 Noter que pour chacun des tests, la segmentation est réputée être de confiance.
+
+# Ré-évaluation des modèles, détections d'aberrations (scores faussés)
+
+# Détection et identification des erreurs produites par les modèles
+
+# Reconstruction textuelle à partir de plusieurs transcriptions, _take the best leave the worst_
+
+# Quelques compléments LLM
+
+# Quelques compléments vLLM
+
+# Quelques tests d'alignement
