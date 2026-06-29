@@ -20,21 +20,24 @@ De plus, un module de calcul de CER/WER a été fait par D.-F. Bumba et intégr�
 6. german_handwriting_fine-tune_BerlinGT_v1.2 (peut être exclus, considéré comme sous-performant; mais corrigé & utilisé pour la vérité terrain).
 
 À cela s'ajoutent deux fine-tuning produits par D.-F. Bumba lors da la fin du mois de juin. Leurs performances semblent néanmoins, au premier coup d'oeil, bien inférieures à ce dont nous disposions précedemment. De plus, parallèlement à ces modèles _lightweights_, de rapides tests employant des vLLM ont été conduits.
-Noter que pour chacun des tests, la segmentation est réputée être de confiance.
+Noter que pour chacun des tests, la segmentation est réputée être de confiance (en effet, elle l'est pour les corpus utilisés).
 
 # Ré-évaluation des modèles, détections d'aberrations (scores faussés)
 
 # Détection et identification des erreurs produites par les modèles
 
+<!-- https://groupes.renater.fr/wiki/eman/prive/htrleibniz/symboles_speciaux_vols_vi_viii -->
+<!-- https://groupes.renater.fr/wiki/eman/prive/htrleibniz/observations_corrections_alignements -->
+
 # Reconstruction textuelle à partir de plusieurs transcriptions, _take the best leave the worst_
 
-# Quelques compléments LLM
+# Quelques compléments LLM et vLLM
 
-# Quelques compléments vLLM
+Pour quelques réflexions collectives sur l'apport de Claude, on pourra notamment consulter les ébauches de réponse à une initiative de Matthew McMillan ci-dessous (en annexe).
 
 # Quelques tests d'alignement
 
-L'objectif des travaux d'alignement est le suivant : étant donné que l'on dispose d'un PDF contenant une transcription (avec apparat critique) réalisé par des experts, il est souhaitable de pouvoir réutiliser ce travail en le calquant ligne à ligne sur (environ?) un millier de folios. Ainsi, on récupérerait un millier de pages de vérité de terrain. Pour ce faire, la stratégie est la suivante (étant donné que les textes ne sont pas déjà alignés (même faiblement) : générer une transcription automatique avec un modèle présentant un niveau de confiance suffisant, calculer les appariements textuels pour pouvoir remplacer (lorsque c'est nécessaire) la transcription générée de la ligne par la vérité de terrain.
+L'objectif des travaux d'alignement est le suivant : étant donné que l'on dispose d'un PDF contenant une transcription (avec apparat critique) réalisé par des experts, il est souhaitable de pouvoir réutiliser ce travail en le calquant ligne à ligne sur (environ?) un millier de folios. Ainsi, on récupérerait un millier de pages de vérité de terrain. Pour ce faire, la stratégie est la suivante (étant donné que les textes ne sont pas déjà alignés (même faiblement)) : générer une transcription automatique avec un modèle présentant un niveau de confiance suffisant, calculer les appariements textuels pour pouvoir remplacer (lorsque c'est nécessaire) la transcription générée de la ligne par la vérité de terrain.
 
 Les grands essais d'alignement se sont fondés sur [passim](https://github.com/dasmiq/passim). D'autres essais ont été faits en réemployant et détournant l'utilisation de `sentence-transformers/all-MiniLM-L6-v2`. Les résultats ne sont pas concluants quoiqu'ils restent encourageants.
 
@@ -181,3 +184,116 @@ Version au 29 juin 2026.
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  | Tableau des scores (c'est pas une compétition) |  |  |  |  |  |  |  |  |  |  |  |  |  |
 
+
+  ## Réflexions collectives sur l'apport de Claude
+
+### Premier jet de réponse
+MAIL REPONSE à l'américain (Matthew McMillan), j'attends votre avis (anglais pourri mais je crois qu'on le comprend). J'ai combiné ce que l'on a dit (mais j'ai pas regardé en détail les résultats Claude pour la page, je dis donc peut être des bêtises).
+
+Hi!
+
+We discussed a little the results. It seems excellent at first sight! But some problems of interpretability / (small) hallucinations / computational cost (...) (discussed later) might dissuade to use such type of (very) large language models.
+
+Except for some cases, a pipeline using a mixture of (small and specialized ML OCR) experts to reconstruct the transcription from multiple samples combined with some low-tech methods to do post-correction might be comparable/better than using SOTA models.  On the other hand, it is certain that such methods require way more time than a clear/clever prompt and more intricated handcrafted solutions. For the moment (better results should pop at the end of the month), we are at 5 to 8% of CER (depending on the method). The Claude output seems at to perform way better. But, at what cost ? We have no idea.
+
+For a first draft, such a Claude output (or a QWEN 3.7 plus or many other models) would definitely be a good basis. However, there is a disturbing behaviour, Claude output sometime acted as an authoritative argument in the following sense : when the text was really hard to read and Claude tended to give a good guess, it was very tempting to follow it. Sometime, the guess appears to be wrong and there is a very problematic interpretability problem : from Claude viewpoint, what was the justification to prefer such transcription rather than another ? Even if quite rare, such situation could be very critical.
+The same interpretability problem appears with respect to the reading order of the split paragraphs.
+
+Then, Claude corrects words where it should not (a different prompt might solve that problem) or worse change words with no reason (e.g. Axioms --> Ap, "Proposition" --> supposition, "et" --> "nb", "denominator"/"nominator", "quantibus"/"quantitatis"), it also adds parenthesis at inappropriate places. To be honest those are """minor""" issues. However, its confidence level in his guesses might be too high. That is funny but some benchmarks tend to show that we can't have confidence in confidence scores (still benchmarks we are aware of are quite old or too specific). 
+
+A very strange behaviour (maybe linked to previously discussed point) : the Claude model struggles to read some quite easy crossing-out words but perform "not that bad" on very difficult (up to some hallucinations). With no surprise, one of the main limitations of this model (as for humans) is on crossing-out words. Note also that they are not systematically taken into account (e.g. a crossed-out word considered as non-crossed-out).
+
+The question of using (or not) such language models will take more and more space in the future. The interpretability problems of these models is one of the major brakes on growth (especially when there do not exist a consensus between humans).
+But... results are impressive!!!
+
+Depending on who you are and what you are doing, the ideal transcription document might change a lot. A diplomatic edition seems to be the easiest answer to your question. DAVID/AUDREY/SEBASTIEN/DENISA BESOIN DE VOUS SUR CETTE PARTIE. Y'A DES TRUCS A DIRE MAIS JE SAIS PAS ENCORE QUELLE DIRECTION DONNER À LA REPONSE.
+
+ET JE LUI DIS QUOI POUR SON little GUI and pipeline to split a folio into left and right pages DANS LA MESURE OÙ UN CLASSIFICATEUR YOLO FAIT LE TAFF ET EST RAPIDE A FAIRE? JE REPONDS JUSTE PAS A CETTE PARTIE JE PENSE.
+
+Were you able to implement your vector search pipeline ? If so, did you get any interesting results ?
+
+Thank you so much for these tests!
+
+Have a nice day,
+Denisa, Audrey, David, Sebastien, Mathias.
+
+### Réponse de Denisa Bumba
+(Re) Bonjour Mathias, 
+
+Voici mes retours : 
+
+The Claude output seems to perform way better. But, at what cost ? We have no idea. 
+
+Je pense qu'il serait intéressant de connaître le coût énergétique. David, peut-être tu vas me contredire, mais il reste 9000 folios (ou plus) à transcrire avec différents degrés de difficultés (mise en page, ordre de lecture, texte même). Quel serait le coût pour la transcription de 9000 folios : temps et énergie ?
+
+Claude's output sometimes acted as an authoritative argument in the following sense : when the text was really hard to read and Claude tended to give a good guess, it was very tempting to follow it.
+
+Point super intéressant à soulever : est-ce que la transcription va influencer les choix des transcripteurs (je pense notamment à des transcripteurs moins expérimentés sur les textes de Leibniz) ? Est-ce qu'on passe plus de temps à corriger en ayant conscience que le modèle peut faire des fautes de type écrire "a" à la place de "c", car l'encre était faible (modèles HTR) ou bien est-ce qu'on va passer plus d'énergie à vraiment faire attention à la transcription même, car je sais que le LLM non seulement peut se tromper, mais aussi changer le sens d'un mot qu'il interprète de manière fautive.
+
+Aussi, sur ce point, peut-on faire assez confiance à la transcription afin de lancer le LLM sur les 9000 folio non transcrits et puis interroger tous les textes écrits par Leibniz (les 18000 folios) sur un concept en particulier ? A quel point cela risquerait de fausser les résultats ? Comment évaluer ces transcriptions (désolée, je n'ai pas d'expertise la-dessus, je n'ai jamais travaillé avec les LLMs pour faire de la transcription) ? Peut-être que le taux d'erreur de ces LLMs est vraiment faible, cas où leur utilisation pourrait vraiment accélérer le processus de transcription.
+
+Dans Philiumm, nous sommes aussi dans deux optiques : 1) transcrire pour publier (ces transcriptions doivent donc être entièrement revues par des spécialistes et corrigées en intégralité). 2) transcrire pour interroger les textes : savoir comment tel énoncé a évolué à travers tous les textes de Leibniz, trouver une formule dans différents textes avec la possibilité de voir éventuellement le contexte autour de ces formules, etc...   
+
+Je pense que si on pense au 1er objectif et au fait que ces transcriptions soient entièrement relues par des spécialistes de Leibniz, c'est intéressant de considérer/comparer les LLMs aux modèles HTR classiques. Je pense que les experts seraient moins influençables par des erreurs des LLMs que nous, en tant que non experts de ces textes... D'où moins je doute que cela va "corrompre" leur raisonnement.
+
+Si le but est de pouvoir tout transcrire et interroger tout même avant que ces transcriptions soient publiées (revues intégralement), là il vaudrait le coup de voir comment les évaluer (afin de savoir à quel point on peut faire confiance à ces transcriptions).
+
+Personnellement, je n'ai lu que quelques passages, mais la transcription avait l'air vraiment d'être assez propre. Audrey, Sébastien et David, vous avez travaillé en détail sur ce texte, je pense que les erreurs sautent plus facilement à vos yeux.
+
+ET JE LUI DIS QUOI POUR SON little GUI and pipeline to split a folio into left and right pages DANS LA MESURE OÙ UN CLASSIFICATEUR YOLO FAIT LE TAFF ET EST RAPIDE A FAIRE? JE REPONDS JUSTE PAS A CETTE PARTIE JE PENSE.
+
+Je pense qu'il faudrait garder les pages telles qu'elles sont, car parfois on a des passages qui passent d'une page à l'autre et on risque de perdre des petits bouts. C'est ce qu'on avait décidé au début. Mais si c'est plus facile à traiter des pages découpées et qu'ils arrivent à bien découper même les pages qui ne sont pas droites, alors on peut envisager cela. 
+
+Là où on a le plus de mal en ce moment, c'est vraiment la détection des lignes, le taux que tu avais cité, Mathias, était sur des pages où la segmentation était parfaite (car revue entièrement). Et un CER de 5, 6 est tout à fait acceptable pour les deux tâches mentionnées plus haut : correction et interrogation des textes.
+
+Je suis en train de faire des tests de fine-tuning du modèle de lignes, et même si la détection des zones s'est beaucoup amélioré et que celle des lignes aussi, j'ai toujours l'impressions que Kraken a dû mal souvent dans la détection de lignes qui ne sont pas régulières : qui montent ou descendent beaucoup, les interlignes... 
+
+On pourra en dire plus à la fin du mois, après avoir testé le fine-tuning des modèles Fondue pour l'HTR....
+
+Je pense aussi à l'ordre de lecture et à la difficulté de le reconstruire automatiquement sur certaines pages plus complexes... Peut-être penser l'HTR pour des pages simples et les LLMs ou des modèles plus petits pour des pages complexes ? à voir...
+
+Voici, mon avis purement subjectif. 
+
+Denisa
+
+### Réponse de Sébastien Giraud
+
+Voici mes retours personnels : 
+
+D'abord merci Mathias pour ton mail je suis plutôt d'accord avec tout ce que tu as dit et je pense que tu as bien résumé ce qu'on pouvait renvoyer à Monsieur Matthew McMillan. Sur ce point précis, en réponse aussi à la remarque de Denisa sur les deux optiques différentes dans Philiumm : 
+
+Claude's output sometimes acted as an authoritative argument in the following sense : when the text was really hard to read and Claude tended to give a good guess, it was very tempting to follow it.
+
+Personnellement, et c'est surement partiellement biaisé par une confiance assez grande dans les LLM mais je suis d'accord avec le fait que pour le premier aspect de la transcription, c'est à dire celui destiné à la publication, comme Denisa a expliqué, étant donné que c'est revu par des experts de Leibniz c'est sûrement un gain de temps car l'approche confiante et autoritaire du LLM ne va pas forcément biaiser la correction et la publication. 
+Sur le deuxième point cependant, et c'est là où c'est plus personnel, je pense que l'utilisation du LLM peut tout de même représenter un gain de temps. Sur ce point précis : 
+
+Aussi, sur ce point, peut-on faire assez confiance à la transcription afin de lancer le LLM sur les 9000 folio non transcrits et puis interroger tous les textes écrits par Leibniz (les 18000 folios) sur un concept en particulier ? A quel point cela risquerait de fausser les résultats ? Comment évaluer ces transcriptions (désolée, je n'ai pas d'expertise la-dessus, je n'ai jamais travaillé avec les LLMs pour faire de la transcription) ? Peut-être que le taux d'erreur de ces LLMs est vraiment faible, cas où leur utilisation pourrait vraiment accélérer le processus de transcription.
+
+Si le but est de pouvoir tout transcrire et interroger tout même avant que ces transcriptions soient publiées (revues intégralement), là il vaudrait le coup de voir comment les évaluer (afin de savoir à quel point on peut faire confiance à ces transcriptions).
+
+En un sens je suis d'accord mais ne pourrait-on pas penser que sans lancer le LLM sur 9000 folio, lancer une transcription sur certains folios, surtout si on le pré-prompt ce qui, de ce que j'ai pris, n'a pas été le cas pour ce prompt en particulier, permet d'avoir une base de travail très rapidement, qui potentiellement peut s'améliorer à chaque fois qu'elle travaille sur un texte (ou s'enfermer dans des hallucinations c'est tout à fait possible aussi), et après certe un travail derrière de correction mais qui peut-être fait même par quelqu'un comme Audrey ou moi avec moins d'expérience de Leibniz en ayant une guideline d'interrogation constante de ce qui est dit même si Claude l'affirme catégoriquement.
+
+Pointer le fait que Claude agit de manière autoritaire et parfois présomptueusement est vrai mais je ne suis pas sur qu'en travaillant dessus (en tout cas en connaissant pas précisément Leibniz) on face différemment finalement, nous aussi faisons des hypothèses et des interprétations parfois un peu autoritaire sur le texte, qu'on renvoie vers David justement, mais finalement ça revient donc au même, et il est possible que Claude est une capacité d'apprentissage beaucoup plus rapide et donc soit beaucoup plus apte sur le long terme à avoir des interprétations de plus en plus fines et moins présomptueuses, ou en tout cas quand elles le sont de plus en plus précises et justifiées. En tout cas selon moi, même dans cette deuxième optique évoquée par Denisa il peut représenter tout de même un gain de temps important, et surtout qui s'améliore de lui-même assez vite. 
+
+Enfin sur ce point :
+
+Depending on who you are and what you are doing, the ideal transcription document might change a lot. A diplomatic edition seems to be the easiest answer to your question. DAVID/AUDREY/SEBASTIEN/DENISA BESOIN DE VOUS SUR CETTE PARTIE. Y'A DES TRUCS A DIRE MAIS JE SAIS PAS ENCORE QUELLE DIRECTION DONNER À LA REPONSE.
+
+Je n'ai pas du tout assez d'expérience pour avoir un avis hyper pertinent sur le sujet. Philosophiquement ce qui serait une transcription idéal serait une transcription exacte ou tous les éléments sont bien rangés et où le LLM comprend l'ordre des parties, des précisions. Mais en terme de probable et possible peut-être que la transcription idéale c'est quand même d'avoir le moins d'hallucination possible car c'est les trucs les plus durs à remarquer et corriger, c'est un peu simpliste comme réponse j'imagine...Après du coup je suis pas sur de ce qu'on entends par édition/transcription diplomatique donc je suis pas sur. 
+
+En tout cas merci pour le mail et désolé si la réponse n'est pas hyper clair ou pertinente, 
+
+Sébastien 
+
+### Réponse de Audrey Jaffrezic
+
+Rebonjour Mathias,
+
+Merci à toi pour le temps que tu as passé à réunir nos idées dans ce mail, je trouve que tu as bien résumé les remarques qu'on avait formulées ensemble. 
+Personnellement je ne me sentirai pas de m'exprimer vraiment sur ce que pourrait être un "ideal transcription document" et sur la direction du projet global que nous avons car j'ai encore du mal à avoir du recul sur tout le projet et je ne le maîtrise évidemment pas aussi bien que David ou Denisa.
+Mais après en avoir discuté avec Seb et Denisa, un enjeu qui se pose dans notre position de stagiaire (et que tu as un peu abordé dans ton mail) est: est ce que c'est un bon point de départ pour des non spécialistes ? Est ce que c'est mieux de donner le manuscrit à un LLM puis ensuite le corriger que de tout transcrire soit même ou alors de le passer dans l'HTR puis corriger?
+Dans mon cas, ce manuscrit est très compliqué et si j'avais eu le document de Claude dès le début, cela m'aurait donné une version toute propre, en apparence très solide et assez rassurante qui m'aurait alors orienté dans une direction et m'aurait rendue confiante vis à vis de ma compréhension du texte (par exemple l'ordre de lecture). Alors que c'est quelque chose sur lequel nous ne sommes toujours pas confiant maintenant. 
+Cela me fait penser à une discussion que j'avais eu avec une maître de conférence en histoire médiévale (de paris 1 ou 4 je ne me rappelle plus) qui me parlait justement de l'importance progressive que prenait l'automatisation de la transcription de la recherche en histoire. Et elle disait quelque chose de très intéressant, c'est que c'est important de prendre du temps à lire les manuscrits même si on a l'impression de perdre du temps car ça nous permet d'avoir un vrai contact avec ce qu'on étudie en le démêlant soi même, parce que c'est en se perdant dans le matériel et en comprenant sa diversité et sa complexité qu'on ouvre des pistes de recherches. 
+Les modèles HTR sur lesquels vous travaillez avec Denisa représente un bon compromis de mon point de vue car les erreurs sont purement de l'ordre de la reconnaissance des lettres, il n'y a pas de modèle statistique ni de prise en compte du contexte, donc les erreurs sont plus évidentes et moins sournoises. Cependant, quand c'est donné tout fait en quelque secondes avec une note éditoriale, des notes de bas de pages qui commentent les choix fait qui ont été fait c'est autre chose. Quand on est un néophyte, on s'épargne la complexité des textes, cela nous fait gagner du temps (car comme tu l'as dit malgré les nombreuses erreurs, le résultats est impressionnant) mais au prix de ne pas s'approprier la matière et de ne pas se poser certaines question qu'on se serait posé sans. 
+
+C'est peut-être un peu hors sujet comme réponse mais voilà mon humble avis sur la question.
