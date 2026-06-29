@@ -20,7 +20,7 @@ De plus, un module de calcul de CER/WER a été fait par D.-F. Bumba et intégr�
 6. german_handwriting_fine-tune_BerlinGT_v1.2 (peut être exclus, considéré comme sous-performant; mais corrigé & utilisé pour la vérité terrain).
 
 À cela s'ajoutent deux fine-tuning produits par D.-F. Bumba lors da la fin du mois de juin. Leurs performances semblent néanmoins, au premier coup d'oeil, bien inférieures à ce dont nous disposions précedemment. De plus, parallèlement à ces modèles _lightweights_, de rapides tests employant des vLLM ont été conduits.
-Noter que pour chacun des tests, la segmentation est réputée être de confiance (en effet, elle l'est pour les corpus utilisés).
+Noter que pour chacun des tests, la segmentation est réputée être de confiance (et elle l'est pour les corpus utilisés).
 
 # Ré-évaluation des modèles, détections d'aberrations (scores faussés)
 
@@ -30,6 +30,8 @@ Noter que pour chacun des tests, la segmentation est réputée être de confianc
 <!-- https://groupes.renater.fr/wiki/eman/prive/htrleibniz/observations_corrections_alignements -->
 
 # Reconstruction textuelle à partir de plusieurs transcriptions, _take the best leave the worst_
+
+
 
 # Quelques compléments LLM et vLLM
 
