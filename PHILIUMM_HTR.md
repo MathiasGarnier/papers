@@ -38,6 +38,8 @@ L'objectif des travaux d'alignement est le suivant : étant donné que l'on disp
 
 Les grands essais d'alignement se sont fondés sur [passim](https://github.com/dasmiq/passim). D'autres essais ont été faits en réemployant et détournant l'utilisation de `sentence-transformers/all-MiniLM-L6-v2`. Les résultats ne sont pas concluants quoiqu'ils restent encourageants.
 
+TESTS ENCORE À FAIRE!!!!
+
 
 # Annexes 
 
