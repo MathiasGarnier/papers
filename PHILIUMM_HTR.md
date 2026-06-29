@@ -3,14 +3,13 @@
 Pour éviter tout soucis d'installation (pour les utilisateurs Windows ou de certaines distributions Linux), on fournit un [notebook Colab](https://colab.research.google.com/drive/1dMvd0vr-Owg6MUeVhxWr2EylcE6RZSAg?usp=sharing) (exécutable à condition de disposer d'un compte Google). Autrement, on se réfère à la procédure d'installation décrite par Denisa Bumba sur [gitlab](https://gitlab.com/eman8/scripts/scripts-pour-le-pretraitement-des-corpus-sur-EMAN/gestion_resultats_htr-ocr/-/tree/main/eScriptorium_postprocessing_pipeline?ref_type=heads).
 
 
-
 # Rapides rappels des résultats des précédentes campagnes d'évaluations
 
 Pour une description exhaustive et schématique de la chaîne de traitement, on consultera avec profit [la pipeline datée du 13 janvier 2026](https://groupes.renater.fr/wiki/eman/_media/prive/htrleibniz/pipeline_leibniz_13-01-2026.pdf) et, plus généralement, [les carnets de tests suivants](https://groupes.renater.fr/wiki/eman/prive/htrleibniz/chaine_de_traitement_pour_l_augmentation_de_la_verite_terrain_et_l_amelioration_des_modeles_htr). Pour des ressources complémentaires, cf. la page sur le [wiki Renater](https://groupes.renater.fr/wiki/eman/prive/htrleibniz/ressources). Dans ce document, on ne s'intéresse qu'à la partie HTR (et très légèrement à la partie HMER ci-après).
 
 Bien que des résultats assez impressionnants aient pu être obtenus avec des grands modèles de langue généralistes (avec Claude dernier du nom (juin 2026) par Matthew McMillan, Qwen 3.7 plus...), la priorité est donnée à de _petits_ modèles spécialisés (Kraken, FoNDUE-GD) finetunés ou non. Une première étape de segmentation est nécessaire, elle est suivie d'une étape de transcription par ces modèles (présentés ci-après). On procède classiquement en évaluant le résultat d'un modèle contre une vérité de terrain produite spécialement pour l'occasion et vérifiée (voir ci-après l'annexe _Corpus : vérité de terrain certifiée_ pour avoir accès à quelques unes des pages utilisées comme vérité de terrain; de surcroît, un millier de pages supplémentaires pourraient être obtenues si un bon algorithme d'alignement est mis en place; voir les [protocoles de transcription](https://groupes.renater.fr/wiki/eman/prive/htrleibniz/principes_de_relecture_03-12-2025)). Des [statistiques des donneés de terrain](https://groupes.renater.fr/wiki/eman/prive/htrleibniz/statistiques_de_la_verite_de_terrain) sont disponibles.
 
-
+De plus, un module de calcul de CER/WER a été fait par D.-F. Bumba et intégré dans `eScriptorium_postprocessing_pipeline` (présenté dans la partie installation ci-avant) utilisant `tecquel` et `pywer`.
 
 # Quels modèles évaluer ?
 1. FoNDUE-GD_v2.mlmodel = modèle entraîné sur l'ensemble des langues
@@ -35,6 +34,9 @@ Noter que pour chacun des tests, la segmentation est réputée être de confianc
 
 # Quelques tests d'alignement
 
+L'objectif des travaux d'alignement est le suivant : étant donné que l'on dispose d'un PDF contenant une transcription (avec apparat critique) réalisé par des experts, il est souhaitable de pouvoir réutiliser ce travail en le calquant ligne à ligne sur (environ?) un millier de folios. Ainsi, on récupérerait un millier de pages de vérité de terrain. Pour ce faire, la stratégie est la suivante (étant donné que les textes ne sont pas déjà alignés (même faiblement) : générer une transcription automatique avec un modèle présentant un niveau de confiance suffisant, calculer les appariements textuels pour pouvoir remplacer (lorsque c'est nécessaire) la transcription générée de la ligne par la vérité de terrain.
+
+Les grands essais d'alignement se sont fondés sur [passim](https://github.com/dasmiq/passim). D'autres essais ont été faits en réemployant et détournant l'utilisation de `sentence-transformers/all-MiniLM-L6-v2`. Les résultats ne sont pas concluants quoiqu'ils restent encourageants.
 
 
 # Annexes 
