@@ -26,7 +26,7 @@ Noter que pour chacun des tests, la segmentation est réputée être de confianc
 
 Pour chacun des cinq modèles retenus, on commence par évaluer grossièrement le CER en cherchant à déterminer si le modèle a tendance à se tromper ou pas et dans quelle mesure ? On affinera par la suite on cherchant plus précisément le type d'erreurs commises par le modèle.
 
-![alt text](PHILIUMM_PLOTS/01._distrib.png)
+![alt text](PHILIUMM_PLOTS/01_distrib.png)
 
 # Détection et identification des erreurs produites par les modèles
 
