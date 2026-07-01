@@ -28,6 +28,14 @@ Pour chacun des cinq modèles retenus, on commence par évaluer grossièrement l
 
 ![alt text](PHILIUMM_PLOTS/01_distrib.png)
 
+Les modèles 15 et 22 semblent se démarquer, les bons résultats du modèle 22 sont néanmoins obtenus au prix d'un _trop_ grand nombre d'erreurs, comme on le voit plus précisément sur le graphique ci-dessous.
+
+![alt_text](PHILIUMM_PLOTS/02_distrib_lignes.png)
+
+Toutefois, peut-on avoir véritablement foi en les valeurs prédites sur le jeu d'évaluation ? N'y-a-t'il pas des résultats complètement aberrants qui viennent fausser le résultat ? Pour se rendre compte que c'est le cas, on peut changer d'échelle : si précédemment les mesures étaient faites en agregeant toutes les pages ensemble (puis en prenant la moyenne), il suffit de regarder page par page le résultat obtenu. Il est également possible d'aller plus en détail : ligne par ligne. Tout d'abord, au niveau de la page, pour le modèle 22 (par exemple), on détecte 3 pages avec des mesures anormales (tout du moins, un examen humain des pages ne permet pas de justifier des résultats aussi mauvais) :
+
+![alt_text](PHILIUMM_PLOTS/03_distrib_pages.png)
+
 # Détection et identification des erreurs produites par les modèles
 
 <!-- https://groupes.renater.fr/wiki/eman/prive/htrleibniz/symboles_speciaux_vols_vi_viii -->
