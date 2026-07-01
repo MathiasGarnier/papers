@@ -32,9 +32,32 @@ Les modèles 15 et 22 semblent se démarquer, les bons résultats du modèle 22 
 
 ![alt_text](PHILIUMM_PLOTS/02_distrib_lignes.png)
 
-Toutefois, peut-on avoir véritablement foi en les valeurs prédites sur le jeu d'évaluation ? N'y-a-t'il pas des résultats complètement aberrants qui viennent fausser le résultat ? Pour se rendre compte que c'est le cas, on peut changer d'échelle : si précédemment les mesures étaient faites en agregeant toutes les pages ensemble (puis en prenant la moyenne), il suffit de regarder page par page le résultat obtenu. Il est également possible d'aller plus en détail : ligne par ligne. Tout d'abord, au niveau de la page, pour le modèle 22 (par exemple), on détecte 3 pages avec des mesures anormales (tout du moins, un examen humain des pages ne permet pas de justifier des résultats aussi mauvais) :
+Toutefois, peut-on avoir véritablement foi en les valeurs prédites sur le jeu d'évaluation ? N'y-a-t'il pas des résultats complètement aberrants qui viennent fausser le résultat ? Pour se rendre compte que c'est le cas, on peut changer d'échelle : si précédemment les mesures étaient faites en agregeant toutes les pages ensemble (puis en prenant la moyenne), il suffit de regarder page par page le résultat obtenu. Il est également possible d'aller plus en détail : ligne par ligne. Tout d'abord, au niveau de la page, pour le modèle 22 (par exemple), on détecte 2 pages avec des mesures anormales (tout du moins, un examen humain des pages ne permet pas de justifier des résultats aussi mauvais) :
 
 ![alt_text](PHILIUMM_PLOTS/03_distrib_pages.png)
+
+En regardant plus en détail, sur la première partie de la page 2, on peut constater les insertions (vert) et déletions (rouge) suivantes : 
+
+  **GT Version** | **version_22** |
+ |----------------|----------------|
+ | _  , [[alors son expression]] | ⟦                                       ⟧ |
+ | [[pour estre]] pour marquer que le signe de p. ou q premier | ⟦      ⟧ pour marquer que le signe de p. ou q premier |
+ | ou second de la 4me equation depend en quelques façon du Signe dé | ou second de la 4me equation depend en quelque façon du signe de |
+ | K, ou l, qui est le deuxiesme de la 3me equation. Et | K, ou l, qui est le deuxiesme de la 3me equation. Et |
+ | enfin je trouve bon de fermer ces parentheses par en haut pour | enfin je trouve bon de fermer les parentheses par en haut pour |
+ | les discerner de quelques autres parentheses dont on peut avoir | les discerner de quelques autres parentheses dont on peut avoir |
+ | besoin. On voit par la l'advantage assez considerable | besoin. On voit par la l'advantage assez considerable |
+ | de cette façon des signes sur la premiere qui est de n'estre pas | de cette façon des signes sur la premiere qui est de n'estre pas |
+ | obligé d'en faire des nouveaux qui sont quelques fois fort | obligé d'en faire des nouveaux qui sont quelques fois fort |
+ | composés, et ennuyeux: mais en recompense il faut bien | composés, et ennuyeux: mais en recompense il faut bien |
+ | souvent recourir à la liste generale, ou table des Ambiguitez | souvent recourir à la liste generale, ou table des Ambiguitez |
+ | pour avoir leur explication au bout du conte, et pour essayer | pour avoir leur explication au bout du conte, et pour essayer |
+ | mestre pendant l'operation si plusieurs signes correspondants | mesme pendant l'operation si plusieurs signes correspondants joints |
+ | ensemble ne se destruisent peut estre, ou s'expliquent points | ensemble ne se destruisent peut estre, ou s'expliquent |
+ | mutuellement comme cela arrive quelques fois au lieu | mutuellement comme cela arrive quelques fois au lieu |
+ | que les autres se déchiffrent eux mesmes, à la premiere veüe | que les autres se déchiffrent eux mesmes, à la premiere veüe |
+
+L'essentiel des éléments perturbateurs est concentré sur les premières lignes et correspond (presque majoritairement) à du texte barré ou raturé. Il est clair que pour une transcription diplomatique, un tel résultat d'HTR est trop faible. En revanche, pour une recherche (RAG etc.), le taux d'erreur est tout à fait acceptable.
 
 # Détection et identification des erreurs produites par les modèles
 
