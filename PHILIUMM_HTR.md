@@ -20,9 +20,13 @@ De plus, un module de calcul de CER/WER a été fait par D.-F. Bumba et intégr�
 6. german_handwriting_fine-tune_BerlinGT_v1.2 (peut être exclus, considéré comme sous-performant; mais corrigé & utilisé pour la vérité terrain).
 
 À cela s'ajoutent deux fine-tuning produits par D.-F. Bumba lors da la fin du mois de juin. Leurs performances semblent néanmoins, au premier coup d'oeil, bien inférieures à ce dont nous disposions précedemment. De plus, parallèlement à ces modèles _lightweights_, de rapides tests employant des vLLM ont été conduits.
-Noter que pour chacun des tests, la segmentation est réputée être de confiance (et elle l'est pour les corpus utilisés).
+Noter que pour chacun des tests, la segmentation est réputée être de confiance (et elle l'est pour les corpus utilisés). Le corpus étalon évalué sont le `corpus_french_leibniz` ainsi que la vérité terrain produite au cours du mois de juin (pour un total de 30 à 40 pages).
 
 # Ré-évaluation des modèles, détections d'aberrations (scores faussés)
+
+Pour chacun des cinq modèles retenus, on commence par évaluer grossièrement le CER en cherchant à déterminer si le modèle a tendance à se tromper ou pas et dans quelle mesure ? On affinera par la suite on cherchant plus précisément le type d'erreurs commises par le modèle.
+
+![alt text](PHILIUMM_PLOTS/01._distrib.png)
 
 # Détection et identification des erreurs produites par les modèles
 
