@@ -10,3 +10,15 @@ En partant de la référence manuscrite suivante :
 en obtient la sortie brute, via Emuru, que voici :
 
 ![Alt text](PHILIUMM_PLOTS/outputModel.png)
+
+Ce test présente plusieurs défauts (absence de fond, problèmes ductus...) conduisant à son criant manque de réalisme. Nous tenterons ultérieurement de court-circuiter le principe de génération "un exemple-une demande" du modèle afin d'obtenir de meilleurs résultats.
+
+En appliquant quelques transformations géométriques, on parvient à obtenir un résultat faiblement plus réaliste (pour lequel certains problèmes à considérer sérieusement persistent) : 
+
+![Alt text](PHILIUMM_PLOTS/outputModelModif.png)
+
+Ce test a ensuite permis, en utilisant les échantillons textuels mélangés, d'obtenir un premier bout de page synthétique :
+
+![Alt text](PHILIUMM_PLOTS/testOutputPage.png)
+
+Le résultat reste relativement décevant mais laisse penser qu'il est possible d'en tirer quelque chose.
