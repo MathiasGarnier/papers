@@ -68,9 +68,9 @@ L'essentiel des éléments perturbateurs est concentré sur les premières ligne
 
 
 
-# Quelques compléments LLM et vLLM
+# Quelques légers compléments LLM et vLLM
 
-Pour quelques réflexions collectives sur l'apport de Claude, on pourra notamment consulter les ébauches de réponse à une initiative de Matthew McMillan ci-dessous (en annexe).
+Pour quelques réflexions collectives sur l'apport de Claude, on pourra notamment consulter les ébauches de réponse à une initiative de Matthew McMillan ci-dessous (en annexe). De maigres tests ont également pu être faits avec QWEN 3.7 plus (en particulier pour détecter les zones de mathématiques, au sein des lignes ou bien entre lignes de texte, plutôt concluants mais peu étonnants vu la taille _supposée_ du modèle). Pour deux raisons, on a abandonné / n'a pas suivi sérieusement cette piste. Premièrement, l'utilisation de tel modèle ne s'inscrivait pas dans la philosophie du projet (impact, taille, généralité). Deuxièmement (et principalement), l'équipe de Nantes (et en particulier le stagiaire Mathis Yassin) travaille déjà sur cela (et en particulier des petits modèles Qwen-like). 
 
 # Quelques tests d'alignement
 
@@ -78,7 +78,7 @@ L'objectif des travaux d'alignement est le suivant : étant donné que l'on disp
 
 Les grands essais d'alignement se sont fondés sur [passim](https://github.com/dasmiq/passim). D'autres essais ont été faits en réemployant et détournant l'utilisation de `sentence-transformers/all-MiniLM-L6-v2`. Les résultats ne sont pas concluants quoiqu'ils restent encourageants.
 
-TESTS ENCORE À FAIRE!!!!
+Il y aurait encore beaucoup de tests à faire mais, étant donné que Denisa Bumba a réussi à aligner une partie substantielle du corpus, on ne s'est pas particulièrement concentré sur cette question. Toutefois, il serait vraiment intéressant de comprendre comment passim fonctionne (et surtout aussi _rapidement_).
 
 
 # Annexes 
