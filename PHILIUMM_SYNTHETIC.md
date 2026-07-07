@@ -21,6 +21,6 @@ Ce test a ensuite permis, en utilisant les échantillons textuels mélangés, d'
 
 ![Alt text](PHILIUMM_PLOTS/testOutputPage.png)
 
-En faisant de la reconstruction ligne à ligne, on perd immédiatement quelques détails coucourant au réalisme de la page (par exemple le fait qu'un trait, une boucle ou queue de lettre puisse chevaucher la ligne en dessous). Est-ce à dire qu'il faut envisager de la reconstruction (bloc de) caractère(s) par (bloc de) caractère(s) ?
-
 Le résultat reste relativement décevant mais laisse penser qu'il est possible d'en tirer quelque chose.
+
+En faisant de la reconstruction ligne à ligne, on perd immédiatement quelques détails coucourant au réalisme de la page (par exemple le fait qu'un trait, une boucle ou queue de lettre puisse chevaucher la ligne en dessous). Est-ce à dire qu'il faut envisager de la reconstruction (bloc de) caractère(s) par (bloc de) caractère(s) ?
