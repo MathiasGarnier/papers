@@ -24,3 +24,5 @@ Ce test a ensuite permis, en utilisant les échantillons textuels mélangés, d'
 Le résultat reste relativement décevant mais laisse penser qu'il est possible d'en tirer quelque chose.
 
 En faisant de la reconstruction ligne à ligne, on perd immédiatement quelques détails coucourant au réalisme de la page (par exemple le fait qu'un trait, une boucle ou queue de lettre puisse chevaucher la ligne en dessous). Est-ce à dire qu'il faut envisager de la reconstruction (bloc de) caractère(s) par (bloc de) caractère(s) ?
+
+On a été en mesure d'améliorer légèrement les résultats. Toutefois, on pense qu'une approche ligne à ligne pour un modèle d'HTR pourrait suffire (en intégrant les points faisant défaut, discutés juste avant). Ce travail sera continué sous une autre perspective, au sein de l'équipe des manuscrits brûlés de l'ENC. (Bien évidemment, on ne compare pas l'état des manuscrits de Leibniz à ceux qui ont survécu à l'incendie de la Bibliothèque de Turin en 1904, par exemple. Disons seulement ici que les méthodes employées pourront être transférées.)
