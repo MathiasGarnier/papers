@@ -36,7 +36,7 @@ Toutefois, peut-on avoir véritablement foi en les valeurs prédites sur le jeu 
 
 ![alt_text](PHILIUMM_PLOTS/03_distrib_pages.png)
 
-En regardant plus en détail, sur la première partie de la page 2, on peut constater les insertions (vert) et déletions (rouge) suivantes : 
+En regardant plus en détail, sur la première partie de la page 2, on peut constater les insertions et déletions suivantes : 
 
   **GT Version** | **version_22** |
  |----------------|----------------|
@@ -57,7 +57,7 @@ En regardant plus en détail, sur la première partie de la page 2, on peut cons
  | mutuellement comme cela arrive quelques fois au lieu | mutuellement comme cela arrive quelques fois au lieu |
  | que les autres se déchiffrent eux mesmes, à la premiere veüe | que les autres se déchiffrent eux mesmes, à la premiere veüe |
 
-L'essentiel des éléments perturbateurs est concentré sur les premières lignes et correspond (presque majoritairement) à du texte barré ou raturé. Il est clair que pour une transcription diplomatique, un tel résultat d'HTR est trop faible. En revanche, pour une recherche (RAG etc.), le taux d'erreur est tout à fait acceptable.
+L'essentiel des éléments perturbateurs est concentré sur les premières lignes et correspond (presque majoritairement) à du texte barré ou raturé. Il est clair que pour une transcription diplomatique, un tel résultat d'HTR est trop faible. En revanche, pour une recherche (RAG etc.; quitte à utiliser des regex ou avoir une tolérance non nulle concernant les taux de (dis)similarité entre expressions), le taux d'erreur est tout à fait acceptable. Le même test a été conduit sur un corpus étendu à 275 éléments de manuscrits de Leibniz. Les résultats sont significativement pires. Cela s'explique en grande partie par deux points. Tout d'abord, les protocoles d'annotation et de transcriptions ayant évolué en deux ans, on peut constater quelques variations venant fausser les résultats. Il ne faut pas non plus oublier que, l'erreur étant humaine, les transcriptions ne sont pas absolument parfaite (en particulier concernant les éléments barrés). Ensuite, une part non négligeable des "erreurs" n'en sont en réalité pas. Par exemple, le caractère `à` peut être représenté de différentes façons en Unicode. Il convient donc d'arranger superficiellement les scores pour que de telles erreurs fausses-positives ne soient pas prises en compte. Mais avant, voyons globalement les erreurs commises par les modèles.  
 
 # Détection et identification des erreurs produites par les modèles
 
