@@ -64,15 +64,83 @@ L'essentiel des éléments perturbateurs est concentré sur les premières ligne
 <!-- https://groupes.renater.fr/wiki/eman/prive/htrleibniz/symboles_speciaux_vols_vi_viii -->
 <!-- https://groupes.renater.fr/wiki/eman/prive/htrleibniz/observations_corrections_alignements -->
 
-FINIR INSERER TABLE INSERTION DELETION EDIT
+Pour chaque modèle, on regarde le top 10 des insertions, suppressions et remplacements (la table n'est pas optimalement construite mais on espère sa présentation suffisamment claire) : 
+
+| Top 10 insertions | Top 10 suppressions | Top 10 remplacements |
+| :--- | :--- | :--- |
+| **--- FONDU_fr ---** | | |
+| ' ': 101 | ' ': 163 | 'é' -> 'é': 226 |
+| '́': 80 | '__': 158 | 'à' -> 'à': 143 |
+| ',': 54 | 's': 76 | 'l' -> 't': 41 |
+| '̀': 31 | ',': 66 | 'é' -> 'e': 40 |
+| 's': 28 | 'e': 28 | 'q' -> 'g': 35 |
+| 'e': 24 | '.': 28 | 't' -> 's': 30 |
+| 'i': 21 | 'u': 25 | '≠' -> '+': 30 |
+| 't': 17 | 'r': 22 | 'a' -> 'e': 29 |
+| 'l': 16 | 'i': 19 | 'ê' -> 'ê': 29 |
+| '.': 14 | ''': 17 | 'qu' -> 'gr': 27 |
+| **--- FONDU_la ---** | | |
+| ' ': 115 | ' ': 439 | 'é' -> 'e': 251 |
+| ',': 51 | '__': 160 | 'à' -> 'a': 149 |
+| 'c': 49 | ''': 86 | 'l' -> 't': 84 |
+| 'i': 25 | ',': 57 | 'u' -> 'n': 83 |
+| 'l': 21 | 's': 53 | 'u' -> 'a': 75 |
+| 's': 17 | '́': 30 | 'v' -> 'u': 69 |
+| 'u': 16 | '.': 27 | ''' -> ' ': 54 |
+| 'e': 16 | 'r': 26 | 'q' -> 'g': 50 |
+| '.': 16 | 'u': 25 | 'n' -> 'u': 33 |
+| 'r': 10 | 'e': 24 | 'o' -> 'a': 29 |
+| **--- FONDU_base ---** | | |
+| ' ': 101 | ' ': 245 | 'é' -> 'e': 141 |
+| ',': 58 | '__': 167 | 'é' -> 'é': 126 |
+| '́': 55 | ''': 69 | 'à' -> 'à': 98 |
+| '.': 29 | ',': 60 | 'u' -> 'n': 97 |
+| 's': 25 | 's': 53 | 'l' -> 't': 80 |
+| 'e': 21 | 'r': 31 | 'à' -> 'a': 54 |
+| 't': 19 | 'e': 25 | 'v' -> 'u': 40 |
+| 'i': 19 | '.': 24 | 'e' -> 'c': 35 |
+| 'c': 16 | 'i': 20 | '≠' -> '+': 24 |
+| 'l': 14 | '_': 20 | 'a' -> 'o': 22 |
+| **--- version_22 ---** | | |
+| ' ': 44 | ' ': 173 | 'é' -> 'e': 36 |
+| 's': 24 | '__': 96 | 's' -> 'r': 26 |
+| ',': 22 | ',': 50 | 's' -> 't': 25 |
+| '__': 12 | 's': 35 | 'é' -> 'é': 23 |
+| '.': 11 | '.': 23 | 'e' -> 'é': 18 |
+| 'l': 11 | ''': 13 | 'i' -> 'r': 14 |
+| 't': 11 | 'i': 13 | 'a' -> 'u': 13 |
+| 'u': 10 | 'n': 12 | 'v' -> 'r': 13 |
+| 'r': 7 | 'u': 11 | 'à' -> 'a': 12 |
+| 'i': 7 | '_': 10 | 'a' -> 'à': 12 |
+| **--- version_15 ---** | | |
+| ' ': 111 |   ' ': 256 |   'é' -> 'e': 144 |
+| 's': 43 |   '__': 159 |   'e' -> 'o': 35 |
+| '.': 28 |   ',': 76 |   'f' -> 's': 32 |
+| 'r': 25 |    '.': 34 |   'u' -> 'n': 31 |
+| 'e': 23 |   ''': 33 |   't' -> 'l': 29 |
+| 'i': 23 |   's': 29 |   'e' -> 'c': 27 |
+| ',': 23 |   'e': 26 |    'n' -> 'u': 25 |
+| 't': 15 |   'n': 20 |   'a' -> 'u': 25 |
+| 'l': 14 |   'r': 19 |   'n' -> 'r': 25 |
+| 'c': 13 |  't': 14 |  't' -> 'b': 25 |
+
+
+
+
+
+
+Si l'on omet le meilleur modèle (version_22 et possiblement version_15 dans une certaine mesure)
+
 
 # Reconstruction textuelle à partir de plusieurs transcriptions, _take the best leave the worst_
 
-
+très sommaire
 
 # Quelques légers compléments LLM et vLLM
 
 Pour quelques réflexions collectives sur l'apport de Claude, on pourra notamment consulter les ébauches de réponse à une initiative de Matthew McMillan ci-dessous (en annexe). De maigres tests ont également pu être faits avec QWEN 3.7 plus (en particulier pour détecter les zones de mathématiques, au sein des lignes ou bien entre lignes de texte, plutôt concluants mais peu étonnants vu la taille _supposée_ du modèle). Pour deux raisons, on a abandonné / n'a pas suivi sérieusement cette piste. Premièrement, l'utilisation de tel modèle ne s'inscrivait pas dans la philosophie du projet (impact, taille, généralité). Deuxièmement (et principalement), l'équipe de Nantes (et en particulier le stagiaire Mathis Yassin) travaille déjà sur cela (et en particulier des petits modèles Qwen-like). 
+
+INTEGRER TEST VLM + différentes métriques
 
 # Quelques tests d'alignement
 
