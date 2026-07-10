@@ -64,6 +64,8 @@ L'essentiel des éléments perturbateurs est concentré sur les premières ligne
 <!-- https://groupes.renater.fr/wiki/eman/prive/htrleibniz/symboles_speciaux_vols_vi_viii -->
 <!-- https://groupes.renater.fr/wiki/eman/prive/htrleibniz/observations_corrections_alignements -->
 
+FINIR INSERER TABLE INSERTION DELETION EDIT
+
 # Reconstruction textuelle à partir de plusieurs transcriptions, _take the best leave the worst_
 
 
