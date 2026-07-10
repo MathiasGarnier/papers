@@ -28,7 +28,7 @@ Pour chacun des cinq modèles retenus, on commence par évaluer grossièrement l
 
 ![alt text](PHILIUMM_PLOTS/01_distrib.png)
 
-Les modèles 15 et 22 semblent se démarquer, les bons résultats du modèle 22 sont néanmoins obtenus au prix d'un _trop_ grand nombre d'erreurs, comme on le voit plus précisément sur le graphique ci-dessous.
+Les modèles 15 et 22 semblent se démarque. AJOUTER TRUC
 
 ![alt_text](PHILIUMM_PLOTS/02_distrib_lignes.png)
 
