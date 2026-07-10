@@ -151,6 +151,10 @@ Les grands essais d'alignement se sont fondés sur [passim](https://github.com/d
 Il y aurait encore beaucoup de tests à faire mais, étant donné que Denisa Bumba a réussi à aligner une partie substantielle du corpus, on ne s'est pas particulièrement concentré sur cette question. Toutefois, il serait vraiment intéressant de comprendre comment passim fonctionne (et surtout aussi _rapidement_).
 
 
+# Dictionnaire 
+
+utltime tests avec Denisa + trucs avant (pborlbèméatique etc...)
+
 # Annexes 
 
 ## Corpus (vérité de terrain certifiée)
