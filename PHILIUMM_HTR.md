@@ -124,13 +124,28 @@ Pour chaque modèle, on regarde le top 10 des insertions, suppressions et rempla
 | 'l': 14 |   'r': 19 |   'n' -> 'r': 25 |
 | 'c': 13 |  't': 14 |  't' -> 'b': 25 |
 
+De tests à plus grandes échelles (sur presque 300 pages) donnent des résultats comparables. Plus précisément, si l'on regarde les erreurs faites en contexte (pour des fenêtres roulantes de 3-grammes), on trouve les erreurs récurrentes suivantes :
+
+--- VERSION_LA ---
+
+  ·cu[i -> j]us·: 20 fois, ·qu[’ -> ']il·: 19 fois, ·qu[’ -> ']on·: 18 fois, [S -> s]ed·: 13 fois, st·[à -> a]·di: 11 fois, de·[D -> d]ieu: 10 fois, ·to[u -> n]te·: 10 fois, ·to[u -> n]tes: 10 fois, [S -> s]it·: 10 fois, [C -> c]um·: 10 fois
+  
+--- VERSION_22 ---
+
+  ·po[t -> l]est: 109 fois, ·au[t -> l]em·: 33 fois, ·po[t -> s]est: 28 fois, ali[q -> g]uid: 28 fois, ·qu[’ -> ']il·: 27 fois, ·et[i -> r]am·: 25 fois, ·pu[n -> u]ctu: 25 fois, ·re[c -> s]ta·: 25 fois, ·qu[’ -> ']on·: 21 fois, ·ta[n -> u]tum: 21 fois
+  
+Les ordres de grandeurs des erreurs de chaque modèle sont cohérents avec le fait que le corpus soit essentiellement latin. 
+
+# Dictionnaire 
+
+Basé sur une analyse multi-gramme et sur les erreurs fréquemment produites en contexte (sans sémantique), on a envisagé une approche par dictionnaire pour corriger les erreurs les plus fréquentes. Malheureusement, un surplus de faux amis, de caractères entremêlés et le défaut de prise en compte du sens des mots en contexte, conduit à obtenir des résultats décevants ne produisant aucune amélioration, voire même détériorant les résultats :
+
+![alt text](PHILIUMM_PLOTS/04_dico1.png)
+
+![alt text](PHILIUMM_PLOTS/04_dico2.png)
 
 
-
-
-
-Si l'on omet le meilleur modèle (version_22 et possiblement version_15 dans une certaine mesure)
-
+où l'on a plotté `model_data['old_CER'] - model_data['word_CER']` en fonction de `model_data['page_idx']` pour chaque model, avec `word_cer` le CER actualisé par l'approche multi-gramme par dictionnaire. Ainsi, si la différence est positive, le résultat est encourageant. Ce type d'approche n'apparaît donc efficace que pour les modèles relativement non adaptés / mauvais, avec des gains tout à fait marginaux. Pour les modèles déjà spécialisés, il n'y a pas beaucoup à gagner.
 
 # Reconstruction textuelle à partir de plusieurs transcriptions, _take the best leave the worst_
 
@@ -150,10 +165,6 @@ Les grands essais d'alignement se sont fondés sur [passim](https://github.com/d
 
 Il y aurait encore beaucoup de tests à faire mais, étant donné que Denisa Bumba a réussi à aligner une partie substantielle du corpus, on ne s'est pas particulièrement concentré sur cette question. Toutefois, il serait vraiment intéressant de comprendre comment passim fonctionne (et surtout aussi _rapidement_).
 
-
-# Dictionnaire 
-
-utltime tests avec Denisa + trucs avant (pborlbèméatique etc...)
 
 # Annexes 
 
