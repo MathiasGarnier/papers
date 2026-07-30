@@ -149,13 +149,12 @@ où l'on a plotté `model_data['old_CER'] - model_data['word_CER']` en fonction 
 
 # Reconstruction textuelle à partir de plusieurs transcriptions, _take the best leave the worst_
 
-très sommaire
+En suivant une stratégie utilisée dans _Handwritten Text Recognition from Crowdsourced Annotations_ par Tarride, Faine, Boillet, Mouchère et Kermorvant
+
 
 # Quelques légers compléments LLM et vLLM
 
-Pour quelques réflexions collectives sur l'apport de Claude, on pourra notamment consulter les ébauches de réponse à une initiative de Matthew McMillan ci-dessous (en annexe). De maigres tests ont également pu être faits avec QWEN 3.7 plus (en particulier pour détecter les zones de mathématiques, au sein des lignes ou bien entre lignes de texte, plutôt concluants mais peu étonnants vu la taille _supposée_ du modèle). Pour deux raisons, on a abandonné / n'a pas suivi sérieusement cette piste. Premièrement, l'utilisation de tel modèle ne s'inscrivait pas dans la philosophie du projet (impact, taille, généralité). Deuxièmement (et principalement), l'équipe de Nantes (et en particulier le stagiaire Mathis Yassin) travaille déjà sur cela (et en particulier des petits modèles Qwen-like). 
-
-INTEGRER TEST VLM + différentes métriques
+Pour quelques réflexions collectives sur l'apport de Claude, on pourra notamment consulter les ébauches de réponse à une initiative de Matthew McMillan ci-dessous (en annexe). De maigres tests ont également pu être faits avec QWEN 3.7 plus (en particulier pour détecter les zones de mathématiques, au sein des lignes ou bien entre lignes de texte, plutôt concluants mais peu étonnants vu la taille _supposée_ du modèle). Pour deux raisons, on a abandonné / n'a pas suivi sérieusement cette piste. Premièrement, l'utilisation de tel modèle ne s'inscrivait pas dans la philosophie du projet (impact, taille, généralité). Deuxièmement (et principalement), l'équipe de Nantes (et en particulier le stagiaire Mathis Yassin) travaille déjà sur cela (et en particulier des petits modèles Qwen-like).
 
 # Quelques tests d'alignement
 
